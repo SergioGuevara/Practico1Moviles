@@ -4,39 +4,50 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.practico1moviles.databinding.FragmentHomeBinding
+import com.example.practico1moviles.R
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val editTextNombre = view.findViewById<EditText>(R.id.editTextNombre)
+        val editTextNota1 = view.findViewById<EditText>(R.id.editTextNota1)
+        val editTextNota2 = view.findViewById<EditText>(R.id.editTextNota2)
+        val editTextNota3 = view.findViewById<EditText>(R.id.editTextNota3)
+        val editTextNota4 = view.findViewById<EditText>(R.id.editTextNota4)
+        val editTextNota5 = view.findViewById<EditText>(R.id.editTextNota5)
+
+
+        // Encuentra los EditText para las otras notas
+
+        val buttonCalcularPromedio = view.findViewById<Button>(R.id.buttonCalcularPromedio)
+        buttonCalcularPromedio.setOnClickListener {
+            val nombre = editTextNombre.text.toString()
+            val nota1 = editTextNota1.text.toString().toDouble()
+            val nota2 = editTextNota2.text.toString().toDouble()
+            val nota3 = editTextNota3.text.toString().toDouble()
+            val nota4 = editTextNota4.text.toString().toDouble()
+            val nota5 = editTextNota5.text.toString().toDouble() // Corregido: Utilizar editTextNota5
+
+
+            val promedio = ((nota1 + nota2 + nota3 + nota4 + nota5) / 5).toDouble()
+
+
+            val estado = if (promedio >= 6) "Aprobado" else "Reprobado"
+
+            val mensaje = "Alumno: $nombre Promedio: $promedio  - $estado"
+            Toast.makeText(requireContext(), mensaje, Toast.LENGTH_LONG).show()
         }
-        return root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return view
     }
 }
