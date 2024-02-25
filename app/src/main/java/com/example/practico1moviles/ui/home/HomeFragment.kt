@@ -27,9 +27,9 @@ class HomeFragment : Fragment() {
         val editTextNota3 = view.findViewById<EditText>(R.id.editTextNota3)
         val editTextNota4 = view.findViewById<EditText>(R.id.editTextNota4)
         val editTextNota5 = view.findViewById<EditText>(R.id.editTextNota5)
-        val textViewPromedio = view.findViewById<TextView>(R.id.textViewPromedio)
-           textViewPromedio.setTypeface(null, Typeface.BOLD)
-        // Encuentra los EditText para las otras notas
+        val textViewProm = view.findViewById<TextView>(R.id.textViewPromedio)
+           textViewProm.setTypeface(null, Typeface.BOLD)
+
 
         val buttonCalcularPromedio = view.findViewById<Button>(R.id.buttonCalcularPromedio)
         buttonCalcularPromedio.setOnClickListener {
@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
             val estado = if (promedio >= 6) "Aprobado" else "Reprobado"
 
             val mensaje = "Alumno: $nombre Promedio: $promedio  - $estado"
-            textViewPromedio.setText(mensaje)
+            textViewProm.setText(mensaje)
         }
 
         return view
