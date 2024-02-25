@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
         val editTextNota4 = view.findViewById<EditText>(R.id.editTextNota4)
         val editTextNota5 = view.findViewById<EditText>(R.id.editTextNota5)
         val textViewProm = view.findViewById<TextView>(R.id.textViewPromedio)
-           textViewProm.setTypeface(null, Typeface.BOLD)
+        textViewProm.setTypeface(null, Typeface.BOLD)
 
 
         val buttonCalcularPromedio = view.findViewById<Button>(R.id.buttonCalcularPromedio)
