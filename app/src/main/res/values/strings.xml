@@ -9,6 +9,11 @@
     <string name="alumno">Sergio Guevara</string>
     <string name="carnet">GD191431</string>
     <string name="menu_home">Ejercicio1</string>
-    <string name="menu_gallery">Ejercicio2</string>
     <string name="menu_slideshow">Ejercicio3</string>
+    <string name="menu_gallery">Ejercicio2</string>
+    <string name="resultadoeje2"></string>
+    <string name="operacion_suma">Sumar</string>
+    <string name="operacion_resta">Restar</string>
+    <string name="operacion_multiplicacion">Multiplicar</string>
+    <string name="operacion_division">Dividir</string>
 </resources>

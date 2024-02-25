@@ -1,11 +1,13 @@
 package com.example.practico1moviles.ui.home
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.practico1moviles.R
@@ -25,8 +27,8 @@ class HomeFragment : Fragment() {
         val editTextNota3 = view.findViewById<EditText>(R.id.editTextNota3)
         val editTextNota4 = view.findViewById<EditText>(R.id.editTextNota4)
         val editTextNota5 = view.findViewById<EditText>(R.id.editTextNota5)
-
-
+        val textViewPromedio = view.findViewById<TextView>(R.id.textViewPromedio)
+           textViewPromedio.setTypeface(null, Typeface.BOLD)
         // Encuentra los EditText para las otras notas
 
         val buttonCalcularPromedio = view.findViewById<Button>(R.id.buttonCalcularPromedio)
@@ -36,7 +38,7 @@ class HomeFragment : Fragment() {
             val nota2 = editTextNota2.text.toString().toDouble()
             val nota3 = editTextNota3.text.toString().toDouble()
             val nota4 = editTextNota4.text.toString().toDouble()
-            val nota5 = editTextNota5.text.toString().toDouble() // Corregido: Utilizar editTextNota5
+            val nota5 = editTextNota5.text.toString().toDouble()
 
 
             val promedio = ((nota1 + nota2 + nota3 + nota4 + nota5) / 5).toDouble()
@@ -45,7 +47,7 @@ class HomeFragment : Fragment() {
             val estado = if (promedio >= 6) "Aprobado" else "Reprobado"
 
             val mensaje = "Alumno: $nombre Promedio: $promedio  - $estado"
-            Toast.makeText(requireContext(), mensaje, Toast.LENGTH_LONG).show()
+            textViewPromedio.setText(mensaje)
         }
 
         return view

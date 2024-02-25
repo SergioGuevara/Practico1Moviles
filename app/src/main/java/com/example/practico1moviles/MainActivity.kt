@@ -11,6 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import android.widget.TextView
+import android.graphics.Typeface
 import com.example.practico1moviles.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
